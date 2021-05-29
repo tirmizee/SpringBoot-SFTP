@@ -5,5 +5,9 @@ public interface SftpService {
 	void upload();
 	
 	void download();
+	
+	void listNames();
+	
+	void listFiles();
 
 }
