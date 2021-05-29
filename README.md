@@ -7,3 +7,4 @@
 ### Reference
 
 - https://www.youtube.com/watch?v=j0AG4KrzCgs
+- https://docs.spring.io/spring-integration/docs/current/reference/html/sftp.html#sftp-session-factory
