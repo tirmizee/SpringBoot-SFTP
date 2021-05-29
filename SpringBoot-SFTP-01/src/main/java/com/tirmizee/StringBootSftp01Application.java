@@ -23,8 +23,9 @@ public class StringBootSftp01Application implements CommandLineRunner {
 	@Override
 	public void run(String...args) throws Exception {
 		SftpService sftpService = applicationContext.getBean(SftpService.class);
-//		sftpService.upload();
-		sftpService.download();
+		sftpService.upload();
+		sftpService.upload();
+//		sftpService.download();
 	}
 
 }
