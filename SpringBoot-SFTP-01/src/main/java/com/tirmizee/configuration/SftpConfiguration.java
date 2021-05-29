@@ -5,7 +5,6 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.integration.file.remote.session.SessionFactory;
-import org.springframework.integration.sftp.inbound.SftpInboundFileSynchronizer;
 import org.springframework.integration.sftp.session.DefaultSftpSessionFactory;
 
 import com.jcraft.jsch.ChannelSftp.LsEntry;
@@ -42,12 +41,4 @@ public class SftpConfiguration {
 		return sftpSessionFactory;
 	}
 	
-//	@Bean
-//	public SftpInboundFileSynchronizer sftpInboundFileSynchronizer(SessionFactory<LsEntry> sftpSessionFactory) {
-//		SftpInboundFileSynchronizer inboundFileSynchronizer = new SftpInboundFileSynchronizer(sftpSessionFactory);
-//		inboundFileSynchronizer.setDeleteRemoteFiles(false);
-//		inboundFileSynchronizer.setRemoteDirectory("/upload");
-//		return inboundFileSynchronizer;
-//	}
-
 }
