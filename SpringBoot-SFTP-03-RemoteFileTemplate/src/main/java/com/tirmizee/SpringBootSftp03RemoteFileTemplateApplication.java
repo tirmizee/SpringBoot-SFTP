@@ -1,5 +1,8 @@
 package com.tirmizee;
 
+import java.nio.charset.StandardCharsets;
+
+import org.apache.commons.io.IOUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,16 +31,22 @@ public class SpringBootSftp03RemoteFileTemplateApplication implements CommandLin
 		SftpRemoteFileTemplate sftpRemoteFileTemplate = applicationContext.getBean(SftpRemoteFileTemplate.class);
 		
 		// check exists file
-		log.info("exists -> {}", sftpRemoteFileTemplate.exists("/upload/hello610600969339711919.txt"));
+//		log.info("exists -> {}", sftpRemoteFileTemplate.exists("/upload/hello610600969339711919.txt"));
 		
 		// remove file
-		log.info("remove -> {}", sftpRemoteFileTemplate.remove("/upload/hello48862251956541128.txt"));
+//		log.info("remove -> {}", sftpRemoteFileTemplate.remove("/upload/hello48862251956541128.txt"));
 		
 		// rename file 
-		if(sftpRemoteFileTemplate.exists("/upload/hello49464617754855258.txt")) {
-			sftpRemoteFileTemplate.rename("/upload/hello49464617754855258.txt", "/upload/new.txt");
-			log.info("exists -> {}", sftpRemoteFileTemplate.exists("/upload/new.txt"));
-		}
+//		if(sftpRemoteFileTemplate.exists("/upload/hello49464617754855258.txt")) {
+//			sftpRemoteFileTemplate.rename("/upload/hello49464617754855258.txt", "/upload/new.txt");
+//			log.info("exists -> {}", sftpRemoteFileTemplate.exists("/upload/new.txt"));
+//		}
+		
+		// read file
+		sftpRemoteFileTemplate.get("/upload/new.txt", stream -> {
+			String text = IOUtils.toString(stream, StandardCharsets.UTF_8.name()); 
+			log.info("read -> {}", text);
+		});
 		
 		
 	}
